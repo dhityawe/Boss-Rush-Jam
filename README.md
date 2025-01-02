@@ -17,6 +17,7 @@ Embark on an exhilarating 2D platformer action adventure where every level is an
 - **Jump**: `W` or `Space`.
 - **Aim**: Move your **Mouse Cursor**.
 - **Shoot**: Click **Mouse Left Button**.
+- **Rotate Objects**: Right-click on an object to highlight it, then rotate it to change its orientation or position.  
 
 ---
 
