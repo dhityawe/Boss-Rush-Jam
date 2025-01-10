@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Boss-Rush-Jam.sln"
+    "dotnet.defaultSolution": "Boss Rush Jam.sln"
 }
