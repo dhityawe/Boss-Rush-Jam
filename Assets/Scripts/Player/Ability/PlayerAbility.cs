@@ -32,7 +32,6 @@ public class PlayerAbility : MonoBehaviour
         if (abilityGauge < maxAbilityGauge)
         {
             abilityGaugeFill += 0.1f;
-            Debug.Log($"Ability gauge filled! Current value: {abilityGaugeFill}");
 
             // If the gauge reaches 1, reset and start filling a new gauge
             if (abilityGaugeFill >= 1f)

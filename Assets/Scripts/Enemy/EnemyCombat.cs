@@ -14,7 +14,6 @@ public class EnemyCombat : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log($"Enemy hit! Remaining health: {health}");
 
         // If the enemy's health is zero or below, destroy the enemy
         if (health <= 0)

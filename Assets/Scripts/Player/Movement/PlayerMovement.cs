@@ -41,12 +41,6 @@ public class PlayerMovement : MonoBehaviour
         Move();
         FlipSprite();
 
-        // Descend input
-        if (Input.GetKey(KeyCode.S))
-        {
-                Debug.Log("Descend input detected");
-        }
-
         // Jump input
         if (Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.S))
         {
