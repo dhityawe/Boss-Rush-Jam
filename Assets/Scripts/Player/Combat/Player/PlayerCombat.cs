@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [SerializeField] private int health = 4; // Player's health
     private Camera mainCam;
 
     private PlayerAbility playerAbility;
