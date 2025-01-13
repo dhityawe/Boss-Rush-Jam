@@ -11,13 +11,14 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IBulletTarget target = collision.GetComponent<IBulletTarget>();
+        // Check if the collided object implements the IDamageable interface
+        IDamageable target = collision.GetComponent<IDamageable>();
         if (target != null)
         {
-            target.OnBulletHit(gameObject); // Notify target of the hit
+            target.TakeDamage(1); // Apply 1 damage (adjust as needed)
         }
 
-        // Return bullet to pool
+        // Return the bullet to the pool
         bulletPool.ReturnBullet(gameObject);
     }
 }

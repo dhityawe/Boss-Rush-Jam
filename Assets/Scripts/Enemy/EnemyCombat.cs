@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyCombat : MonoBehaviour, IBulletTarget  
+public class EnemyCombat : MonoBehaviour, IDamageable
 {
     [SerializeField] private int health = 10; // Enemy's health
 
@@ -11,9 +11,9 @@ public class EnemyCombat : MonoBehaviour, IBulletTarget
         playerAbility = FindObjectOfType<PlayerAbility>(); // Find the PlayerAbility component in the scene
     }
 
-    public void OnBulletHit(GameObject bullet)
+    public void TakeDamage(int damage)
     {
-        health -= 1;
+        health -= damage;
         Debug.Log($"Enemy hit! Remaining health: {health}");
 
         // If the enemy's health is zero or below, destroy the enemy
@@ -28,4 +28,5 @@ public class EnemyCombat : MonoBehaviour, IBulletTarget
             playerAbility.FillAbilityGauge();
         }
     }
+    
 }
