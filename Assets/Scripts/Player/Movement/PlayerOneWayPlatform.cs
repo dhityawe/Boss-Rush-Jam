@@ -6,6 +6,7 @@ public class PlayerOneWayPlatform : MonoBehaviour
     private GameObject currentOneWayPlatform;
 
     [SerializeField] private BoxCollider2D playerCollider;
+    private Coroutine DescendPlatformCoroutine;
 
     private void Update()
     {
@@ -13,8 +14,13 @@ public class PlayerOneWayPlatform : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.Space))
         {
             if (currentOneWayPlatform != null)
-            {
-                StartCoroutine(DisablePlatformCollider());
+            {   
+                if (DescendPlatformCoroutine != null)
+                {
+                    StopCoroutine(DescendPlatformCoroutine);
+                }
+                
+                DescendPlatformCoroutine = StartCoroutine(DisablePlatformCollider());
             }
         }
     }

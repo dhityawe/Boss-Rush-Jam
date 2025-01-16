@@ -1,5 +1,6 @@
 using UnityEngine;
 using GabrielBigardi.SpriteAnimator;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private SpriteAnimator spriteAnimator;
 
     public bool isJumping;
+    private Collider2D currentPlatform; // Reference to the current platform
 
     void Update()
     {
@@ -39,10 +41,10 @@ public class PlayerMovement : MonoBehaviour
         Move();
         FlipSprite();
 
-        // Prevent jumping if 'S' is being pressed
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && !Input.GetKey(KeyCode.S))
+        // Jump input
+        if (Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.S))
         {
-            StartJump();
+            TryJump();
         }
 
         if (Input.GetKey(KeyCode.Space) && isJumping && !Input.GetKey(KeyCode.S))
@@ -55,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
             StopJump();
         }
     }
-
 
     #region Movement
 
@@ -87,6 +88,15 @@ public class PlayerMovement : MonoBehaviour
         else if (rb.velocity.x < -0.1f)
         {
             spriteRenderer.flipX = true;
+        }
+    }
+
+    private void TryJump()
+    {
+        // Jump only if grounded or vertical velocity is 0
+        if (isGrounded && Mathf.Abs(rb.velocity.y) < 0.01f)
+        {
+            StartJump();
         }
     }
 
@@ -128,10 +138,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // Check if the player is on the ground using a circle overlap
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        // if (isGrounded)
-        // {
-        //     isJumping = false; // Reset jump state when grounded
-        // }
     }
 
     #endregion
