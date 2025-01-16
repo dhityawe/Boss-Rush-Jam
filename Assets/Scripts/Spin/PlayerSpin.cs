@@ -12,13 +12,14 @@ public class PlayerSpin : MonoBehaviour
         {
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 direction = worldMousePosition - transform.position;
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1000f);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1000f, LayerMask.GetMask("Spinnable"));
             
             if (hit.collider != null)
             {
                 spinnable = hit.collider.transform;
-                Spin();
             }
+
+            Spin();
         }
     }
 
@@ -32,6 +33,9 @@ public class PlayerSpin : MonoBehaviour
         Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = worldMousePosition - spinnable.position;
 
-        spinnable.GetComponent<ISpin>().Spin(direction, 100f);
+        if (spinnable.GetComponent<ISpin>() != null)
+        {
+            spinnable.GetComponent<ISpin>().Spin(direction);
+        }
     }
 }
