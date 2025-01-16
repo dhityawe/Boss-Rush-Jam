@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b84308df7fdb146962866bfd4481f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isChild: 0
+  isChild: 1
   possibleAngles:
   - 0
   - 90
@@ -1284,7 +1284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1765e7c83a57124190cd0176de1f895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &915030561
 MonoBehaviour:
   m_ObjectHideFlags: 0
