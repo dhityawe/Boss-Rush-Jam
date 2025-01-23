@@ -1057,7 +1057,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 777438358}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80b84308df7fdb146962866bfd4481f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 1708f9caf91e03140a778d868852dc0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   isChild: 1
@@ -1070,6 +1070,7 @@ MonoBehaviour:
   - -180
   - -270
   platformCollider: {fileID: 1888291795}
+  spriteRenderer: {fileID: 105435354}
 --- !u!1 &821409032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,7 +1331,7 @@ Transform:
   m_GameObject: {fileID: 951940348}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.2810755, y: -1.88, z: 0}
+  m_LocalPosition: {x: 0.86, y: -3.28, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 1
   m_Children:

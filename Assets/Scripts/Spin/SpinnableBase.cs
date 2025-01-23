@@ -5,11 +5,11 @@ using UnityEngine;
 public class SpinnableBase : MonoBehaviour, ISpin
 {
     [SerializeField] 
-    private bool isChild;
+    protected bool isChild;
     [SerializeField]
-    private List<float> possibleAngles = new List<float> { 0, 90, 180, 270, -90, -180, -270 };
+    protected List<float> possibleAngles = new List<float> { 0, 90, 180, 270, -90, -180, -270 };
     [SerializeField]
-    private Collider2D platformCollider;
+    protected Collider2D platformCollider;
 
     public void Spin(Vector3 spinDirection)
     {
@@ -58,7 +58,7 @@ public class SpinnableBase : MonoBehaviour, ISpin
         }
     }
 
-    private void ChangeEffector(float angle)
+    protected void ChangeEffector(float angle)
     {
         if (angle == 0 || angle == 180 || angle == -180)
         {
